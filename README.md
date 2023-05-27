@@ -15,7 +15,7 @@ Follow these steps to run the Sentiment Analysis Demo:
 
 1. Clone this repository to your local machine:
    ```shell
-   git clone https://github.com/your-username/sentiment-analysis-flask-app.git
+   git clone https://github.com/sabhaee/sentiment-analysis-flask-app.git
 
 2. Download and save the pre-trained model into the `api/model` folder.
 
