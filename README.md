@@ -43,7 +43,7 @@ Follow these steps to run the Sentiment Analysis Demo:
 
 ## Sample output
 
-![Screenshot](image_link)
+![Screenshot](https://github.com/sabhaee/sentiment-analysis-flask-app/blob/main/images/Screenshot.png)
 
 
 ## Customization
