@@ -1,0 +1,13 @@
+transformers == 4.24.0
+pandas == 1.5.3
+Flask == 2.3.2
+gunicorn == 20.1.0
+emoji 
+--find-links https://download.pytorch.org/whl/torch_stable.html
+# use this if GPU inference is required (large docker image size ~5 GB)
+# torch == 2.0.1+cu118
+
+# Use this for light cpu version
+torch == 2.0.1+cpu
+
+

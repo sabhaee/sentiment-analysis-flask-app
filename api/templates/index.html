@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+   
+  </head>
+  <title>Sentiment Analysis Demo</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <body>
+    <h1>Sentiment Analysis</h1>
+    <form method="POST" enctype="multipart/form-data">
+      <label for="text-input">Enter some text:</label><br>
+      <textarea id="text-input" name="text" rows="5" cols="50"></textarea><br>
+      <button type="submit">Analyze</button>
+    </form>
+    {% if sentiment %}
+      <p>Text: {{ text }}</p>
+      <p>Sentiment: <strong>{{ sentiment }}</strong></p>
+      <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+        <canvas id="score-chart"></canvas>
+      </div>
+      <script>
+        // Extract the scores from the response
+        var scores = {{ scores | tojson }};
+        
+        // Create a bar chart using Chart.js
+        var ctx = document.getElementById('score-chart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+            labels: ['Negative','Positive'],
+            datasets: [{
+                label: 'Sentiment Scores',
+                barThickness: 40,
+                maxBarThickness: 80,
+                fill: false,
+                backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(75, 192, 192, 0.5)'],
+                data: scores,
+            }]
+            },
+            options: {
+                responsive: true,
+                indexAxis: 'y', 
+                scales: {
+                    x: {
+                    beginAtZero: true
+                    },
+                    y: {
+                    grid: {
+                        display: false
+                    }
+                    }
+                }
+            }
+        });
+        </script>
+      {% endif %}
+    </body>
+  </html>
