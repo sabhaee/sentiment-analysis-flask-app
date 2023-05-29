@@ -1,5 +1,5 @@
 # Sentiment Analysis Flask App
-This repository contains a sentimnent analysis web app using flask. Model is based on a finetuned version of BERT language model previusly trained on tweeter sentiment dataset. Details of training and model can be found in this repository. 
+This repository contains a sentimnent analysis web app using flask. Model is based on a finetuned version of BERT language model previusly trained on tweeter sentiment dataset. Details of training and model can be found in [this](https://github.com/sabhaee/Twitter-sentiment-analysis.git) repository. 
 Web app allows user to enter text and predicts the sentiment (positive , negative or neutral) associated with it.
 Docker container is added used to provide containerized environment that is consistent across different machines and platforms and easy deployment.
 ## Model State and Checkpoint:
